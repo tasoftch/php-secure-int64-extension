@@ -38,6 +38,14 @@ The extension adds the following functions to the global scope:
 ### Example
 ```php
 <?php
+echo sint64_array_to_string([1]); // 1
+echo sint64_array_to_string([1, 4]); // 260
+echo sint64_array_to_string([0xFF, 0xFF]); // 65535
+
+echo sint64_array_to_string([0x7F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]); // 9223372036854775807
+echo sint64_array_to_string([0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]); // -1
+
+echo uint64_array_to_string([0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]); // 18446744073709551615
 
 ?>
 ```

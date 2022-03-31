@@ -1,0 +1,13 @@
+{
+  "name": "tasoft/php-secure-int64-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Abplanalp",
+      "email": "info@tasoft.ch"
+    }
+  ],
+  "require" : {
+    "php": ">=7.3"
+  }
+}

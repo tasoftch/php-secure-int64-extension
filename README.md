@@ -4,10 +4,10 @@ I've created this package to handle UUIDs from MFRC511 module. It uses five byte
 ### Installation
 ```bin
 $ cd ~
-$ git clone https://github.com/tasoftch/php-spi-extension.git
-$ cd php-spi-extension
+$ git clone https://github.com/tasoftch/php-secure-int64-extension.git
+$ cd php-secure-int64-extension
 $ phpize
-$ ./configure --enable-php-spi
+$ ./configure --enable-secure-int64
 $ make
 $ sudo make install
 ```
@@ -18,52 +18,26 @@ $ php --ini
 ```
 Will list scanned ini files.  
 Add the following line to that php.ini file:
-```extension=php_spi```
+```extension=secure_int64```
 ```php
 <?php
-var_dump( extension_loaded('php_spi') ); // Should be true
+var_dump( extension_loaded('secure_int64') ); // Should be true
 ```
 
 ### Usage
 The extension adds the following functions to the global scope:
-1. ```spi_open```  
-   This opens the device bus.
-1. ```spi_read```  
-   Reads data from the spi bus.
-1. ```spi_write```  
-   Writes data to the spi bus
-1. ```spi_transfer```  
-   Reads and writes data to and from the spi bus in duplex mode
-1. ```spi_close```  
-   Closes the bus.
-1.  ```spi_get_mode```  
-    Reads the mode
-1.  ```spi_get_speed```  
-    Reads the maximum speed
-1.  ```spi_get_bits_per_word```  
-    Reads bits per word
-1.  ```spi_get_delay```  
-    Reads the delay
+1. ```sint64_array_to_string```  
+   Converts an array of maximal 8 bytes into a 64bit signed integer representation as string.
+1. ```uint64_array_to_string```  
+   Converts an array of maximal 8 bytes into a 64bit unsigned integer representation as string.
+1. ```sint64_string_to_array```  
+   Interprets a string as signed 64bit integer value and returns it as array, MSB first.
+1. ```uint64_string_to_array```  
+   Interprets a string as unsigned 64bit integer value and returns it as array, MSB first.
 
 ### Example
-I've tested with a Raspberry Pi Model B 3+ and the JOY-IT RFID-RC522.
 ```php
 <?php
-// Coming soon
+
 ?>
-```
-
-# Usage PHP
-The package also contains a php wrapper class for spi.
-````bin
-$ composer require tasoft/php-i2c-extension
-````
-Please note that the composer installation does not compile the extension!  
-For compilation use the installation guide described before.
-
-Now the same example can be rewritten as:
-
-```php
-<?php
-
 ```

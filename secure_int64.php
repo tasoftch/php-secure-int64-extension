@@ -29,7 +29,25 @@
  */
 
 /**
- * The test function
- * @return bool
+ * @param array $bytes
+ * @return string
  */
-function test_function() {}
+function sint64_array_to_string(array $bytes): string {}
+
+/**
+ * @param array $bytes
+ * @return string
+ */
+function uint64_array_to_string(array $bytes): string {}
+
+/**
+ * @param string $value
+ * @return array
+ */
+function sint64_string_to_array(string $value): array {}
+
+/**
+ * @param string $value
+ * @return array
+ */
+function uint64_string_to_array(string $value): array {}
